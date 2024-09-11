@@ -6,5 +6,7 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/buildapp:v2']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['run', 'deploy', 'cloud-run-deploy', '--image', 'gcr.io/$PROJECT_ID/buildapp:v2', '--region', 'us-central1', '--allow-unauthenticated']
-logsBucket: 'gs://crypto-gantry-431802-r8_cloudbuild'
+# logsBucket: 'gs://crypto-gantry-431802-r8_cloudbuild'
+options:
+  defaultLogsBucketBehavior: 'REGIONAL_USER_OWNED_BUCKET'
 serviceAccount: 'infra-sa@crypto-gantry-431802-r8.iam.gserviceaccount.com'
